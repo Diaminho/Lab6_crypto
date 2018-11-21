@@ -1,6 +1,7 @@
-package com.company;
+package com.company.algorythms;
 
 import java.math.BigInteger;
+import java.util.Date;
 import java.util.Random;
 
 public class GeneratorBigNumbers {
@@ -176,6 +177,24 @@ public class GeneratorBigNumbers {
             newNumber=newNumber.add(new BigInteger("1"));
         }
         System.out.println();
+    }
+
+    public BigInteger printAndReturnTestPrimeNumber(int n, int t){
+        Date start, finish;
+        start=new Date();
+        BigInteger number=generatePrimeNumber(n, t);
+        System.out.println("Generated prime number: "+number);
+        finish=new Date();
+        System.out.println("Elapsed time to generate Prime Number: "+((double)(finish.getTime()-start.getTime())/1000)+" seconds");
+        return number;
+    }
+
+    public void printElapsedTimeToAllPrimeNumber(BigInteger number, int t){
+        Date start, finish;
+        start=new Date();
+        printAllPrimeNumbers(number,t);
+        finish=new Date();
+        System.out.println("Elapsed time to print Prime Numbers: "+((double)(finish.getTime()-start.getTime())/1000)+" seconds");
     }
 
 }

@@ -1,7 +1,8 @@
-package com.company;
+package com.company.algorythms;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -61,6 +62,21 @@ public class DHAlgorythm {
             result = new BigInteger(upperLimit.bitLength(), rand);
         }
         return result;
+    }
+
+    public void printPrimitiveRootList(BigInteger number, int t){
+        Date start=new Date();
+        DHAlgorythm dha=new DHAlgorythm();
+        List list=dha.getAllPrimeDividersOfNumber(number.add(BigInteger.valueOf(1).negate()),t);
+        List roots=dha.getPrimitiveRoot(number,list);
+        Date finish=new Date();
+        System.out.println("\nElapsed time for 100 roots: "+((double)(finish.getTime()-start.getTime())/1000)+" seconds");
+
+        System.out.println("100 ROOTS");
+        for (Object item:roots){
+            System.out.print(item+" ");
+        }
+        System.out.println();
     }
 
 }
