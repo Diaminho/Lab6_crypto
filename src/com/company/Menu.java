@@ -23,7 +23,9 @@ public class Menu {
                 break;
             case 2:
                 System.out.println("Input n: ");
-                nNumber=sc.nextBigInteger();
+                n=sc.nextInt();
+                nNumber=gen.generatePrimeNumber(n, t);
+                System.out.println("generated number: "+nNumber);
                 System.out.println("Input Xa: ");
                 Xa=sc.nextBigInteger();
                 System.out.println("Input Xb: ");
@@ -36,7 +38,7 @@ public class Menu {
         List roots=dha.getPrimitiveRoot(nNumber,list);
         BigInteger g=(BigInteger)roots.get(0);
 
-        System.out.println("N: "+nNumber+"; Xa: "+Xa+"; Xb: "+Xb+"; g: "+g);
+        System.out.println("generated Number: "+nNumber+"; Xa: "+Xa+"; Xb: "+Xb+"; g: "+g);
 
         //1 subscriber
         BigInteger Ya=dha.getAPowBmodN(g,Xa,nNumber);
